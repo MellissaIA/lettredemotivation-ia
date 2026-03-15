@@ -10,6 +10,31 @@
   "dependencies": {
     "next": "15.5.7",
     "react": "18.3.1",
-    "react-dom": "18.3.1"
+    "react-dom": "18.3.1",
+    "stripe": "17.5.0"
   }
 }
+```
+
+La seule différence c'est l'ajout de `"stripe": "17.5.0"` à la fin des dependencies.
+
+4. **Valider les modifications**
+
+Maintenant il faut modifier la fonction d'achat dans le site. Va dans **pages/index.js**, clique sur le crayon, et cherche cette ligne (utilise Ctrl+F) :
+```
+const buyPack = (p) => { setCredits(c => c + p.credits); setIsPaid(true); setShowPricing(false);
+```
+
+Remplace cette ligne entière par :
+```
+const buyPack = async (p) => { try { const res = await fetch("/api/create-checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ packId: p.id, credits: p.credits, price: p.price }) }); const data = await res.json(); if (data.url) window.location.href = data.url; } catch { alert("Erreur de paiement, réessayez."); } };
+```
+
+Et cherche aussi cette ligne :
+```
+const [showPricing, setShowPricing] = useState(false);
+```
+
+Juste **après** cette ligne, ajoute :
+```
+useEffect(() => { const params = new URLSearchParams(window.location.search); if (params.get("success") === "true") { const c = parseInt(params.get("credits") || "0"); if (c > 0) { setCredits(prev => prev + c); setIsPaid(true); } window.history.replaceState({}, "", "/"); } }, []);
