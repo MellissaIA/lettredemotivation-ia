@@ -252,22 +252,30 @@ export default function LettreIA() {
                 Une lettre de motivation qui <span style={{ color: T.accent }}>triple vos chances</span> d'entretien.
               </h1>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(220,38,38,0.05)", borderRadius: 10, border: "0.5px solid rgba(220,38,38,0.1)", marginBottom: 8 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(220,38,38,0.05)", borderRadius: 10, border: "0.5px solid rgba(220,38,38,0.1)", marginBottom: 8, transition: "all 0.3s", cursor: "default" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.03)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
                 <span style={{ fontSize: 22, fontWeight: 800, color: T.red, minWidth: 44 }}>75%</span>
                 <span style={{ fontSize: 12, color: T.textMuted, fontWeight: 500 }}>des candidatures sont éliminées par les filtres ATS avant d'être lues.</span>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(5,150,105,0.05)", borderRadius: 10, border: "0.5px solid rgba(5,150,105,0.1)", marginBottom: 8 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(5,150,105,0.05)", borderRadius: 10, border: "0.5px solid rgba(5,150,105,0.1)", marginBottom: 8, transition: "all 0.3s", cursor: "default" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.03)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
                 <span style={{ fontSize: 16, fontWeight: 700, color: T.accent, minWidth: 44, textAlign: "center" }}>✓</span>
                 <span style={{ fontSize: 12, color: T.textMuted, fontWeight: 500 }}>Notre IA crée une lettre de motivation <span style={{ color: T.accent, fontWeight: 700 }}>personnalisée</span> et <span style={{ color: T.blue, fontWeight: 700 }}>optimisée ATS</span>.</span>
               </div>
 
-              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(37,99,235,0.05)", borderRadius: 10, border: "0.5px solid rgba(37,99,235,0.08)", marginBottom: 16 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(37,99,235,0.05)", borderRadius: 10, border: "0.5px solid rgba(37,99,235,0.08)", marginBottom: 16, transition: "all 0.3s", cursor: "default" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.03)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
                 <span style={{ fontSize: 16, fontWeight: 700, color: T.blue, minWidth: 44, textAlign: "center" }}>⚡</span>
                 <span style={{ fontSize: 12, color: T.textMuted, fontWeight: 500 }}>Résultat en <span style={{ fontWeight: 700, color: T.blue }}>30 secondes</span>, prêt à envoyer.</span>
               </div>
 
-              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 16px", background: "rgba(255,255,255,0.6)", borderRadius: 8, border: "0.5px solid rgba(5,150,105,0.15)" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 16px", background: "rgba(255,255,255,0.6)", borderRadius: 8, border: "0.5px solid rgba(5,150,105,0.15)", transition: "all 0.3s", cursor: "default" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "scale(1.03)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "scale(1)"}>
                 <span style={{ color: T.accent, fontSize: 16 }}>★</span>
                 <span style={{ fontSize: 12, fontWeight: 600, color: T.accent }}>2 essais gratuits, aucune carte bancaire requise.</span>
               </div>
@@ -275,19 +283,29 @@ export default function LettreIA() {
           </Anim>
           <Anim delay={300}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <div style={{ background: T.bg, borderRadius: 10, padding: "20px 18px", border: `0.5px solid ${T.border}`, width: "100%", transform: "rotate(-1.5deg)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
+              <div style={{ background: T.bg, borderRadius: 10, padding: "20px 18px", border: `0.5px solid ${T.border}`, width: "100%", transform: "rotate(-1.5deg)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)", position: "relative", overflow: "hidden" }}>
+                <style>{`
+                  @keyframes writeLine { from { width: 0%; opacity: 0; } to { width: var(--w); opacity: 1; } }
+                  @keyframes stampIn { 0% { transform: rotate(-15deg) scale(3); opacity: 0; } 60% { transform: rotate(-15deg) scale(0.9); opacity: 0.9; } 100% { transform: rotate(-15deg) scale(1); opacity: 1; } }
+                  .write-line { animation: writeLine 0.6s ease-out forwards; width: 0%; opacity: 0; }
+                  .stamp { animation: stampIn 0.4s cubic-bezier(0.17,0.67,0.35,1.2) forwards; opacity: 0; }
+                `}</style>
                 <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: T.accent }} />
                   <span style={{ fontSize: 9, fontWeight: 700, color: T.accent, textTransform: "uppercase", letterSpacing: 1 }}>Lettre de motivation IA</span>
                 </div>
                 <p style={{ fontSize: 11, fontWeight: 500, color: T.textMuted, marginBottom: 8 }}>Madame, Monsieur,</p>
                 {[95, 88, 92, 78, 85, 70, 82, 90, 68].map((w, i) => (
-                  <div key={i} style={{ height: 3, background: i === 2 ? "rgba(5,150,105,0.3)" : i === 5 ? "rgba(37,99,235,0.3)" : T.border, borderRadius: 2, margin: "5px 0", width: `${w}%` }} />
+                  <div key={i} className="write-line" style={{ "--w": `${w}%`, height: 3, background: i === 2 ? "rgba(5,150,105,0.3)" : i === 5 ? "rgba(37,99,235,0.3)" : T.border, borderRadius: 2, margin: "5px 0", animationDelay: `${0.8 + i * 0.2}s` }} />
                 ))}
                 <p style={{ fontSize: 9, color: T.textDim, marginTop: 10 }}>Cordialement,</p>
                 <div style={{ display: "flex", alignItems: "center", gap: 4, marginTop: 8 }}>
                   <svg width="12" height="12" viewBox="0 0 12 12"><circle cx="6" cy="6" r="5" fill="none" stroke={T.accent} strokeWidth="1"/><path d="M4 6l1.5 1.5L8 5" stroke={T.accent} strokeWidth="1" fill="none" strokeLinecap="round"/></svg>
                   <span style={{ fontSize: 8, color: T.accent, fontWeight: 700 }}>Optimisée ATS</span>
+                </div>
+                {/* TAMPON APPROUVÉ */}
+                <div className="stamp" style={{ position: "absolute", top: "50%", left: "50%", marginTop: -30, marginLeft: -40, border: `3px solid ${T.accent}`, borderRadius: 8, padding: "6px 14px", animationDelay: "3.2s" }}>
+                  <span style={{ fontSize: 16, fontWeight: 800, color: T.accent, letterSpacing: 3, textTransform: "uppercase" }}>Approuvé</span>
                 </div>
               </div>
             </div>
