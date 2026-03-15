@@ -244,19 +244,29 @@ export default function LettreIA() {
 
       {/* HERO */}
       <div style={{ background: "linear-gradient(135deg, rgba(5,150,105,0.05), rgba(37,99,235,0.05))" }}>
-        <div style={{ ...ctn, padding: "36px 24px", display: "flex", gap: 28, alignItems: "center", flexWrap: "wrap" }}>
+        <div style={{ ...ctn, padding: "36px 24px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1.3fr 0.7fr", gap: 28, alignItems: "center" }}>
           <Anim delay={100}>
-            <div style={{ flex: "1 1 340px" }}>
-              <h1 style={{ fontSize: 30, fontWeight: 800, lineHeight: 1.15, color: T.text, marginBottom: 16 }}>
+            <div>
+              <h1 style={{ fontSize: 28, fontWeight: 800, lineHeight: 1.15, color: T.text, marginBottom: 18 }}>
                 Une lettre de motivation qui <span style={{ color: T.accent }}>triple vos chances</span> d'entretien.
               </h1>
-              <p style={{ fontSize: 15, fontWeight: 600, color: T.text, marginBottom: 10 }}>Vous postulez, mais personne ne vous rappelle ?</p>
-              <p style={{ fontSize: 13, lineHeight: 1.9, color: T.textMuted, fontWeight: 500, marginBottom: 8 }}>
-                Ce n'est pas votre faute. Les filtres ATS des recruteurs <span style={{ color: T.red, fontWeight: 700 }}>éliminent 75% des candidatures</span> avant qu'un humain ne les voie. Votre lettre de motivation n'arrive jamais sur le bureau du recruteur.
-              </p>
-              <p style={{ fontSize: 13, lineHeight: 1.9, color: T.textMuted, fontWeight: 500, marginBottom: 16 }}>
-                Notre IA crée une lettre de motivation <span style={{ color: T.accent, fontWeight: 700 }}>personnalisée à votre profil</span> et <span style={{ color: T.blue, fontWeight: 700 }}>optimisée pour franchir les filtres ATS</span>. En 30 secondes, votre candidature passe enfin entre les mailles du filet.
-              </p>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(220,38,38,0.05)", borderRadius: 10, border: "0.5px solid rgba(220,38,38,0.1)", marginBottom: 8 }}>
+                <span style={{ fontSize: 22, fontWeight: 800, color: T.red, minWidth: 44 }}>75%</span>
+                <span style={{ fontSize: 12, color: T.textMuted, fontWeight: 500 }}>des candidatures sont éliminées par les filtres ATS avant d'être lues.</span>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(5,150,105,0.05)", borderRadius: 10, border: "0.5px solid rgba(5,150,105,0.1)", marginBottom: 8 }}>
+                <span style={{ fontSize: 16, fontWeight: 700, color: T.accent, minWidth: 44, textAlign: "center" }}>✓</span>
+                <span style={{ fontSize: 12, color: T.textMuted, fontWeight: 500 }}>Notre IA crée une lettre de motivation <span style={{ color: T.accent, fontWeight: 700 }}>personnalisée</span> et <span style={{ color: T.blue, fontWeight: 700 }}>optimisée ATS</span>.</span>
+              </div>
+
+              <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 14px", background: "rgba(37,99,235,0.05)", borderRadius: 10, border: "0.5px solid rgba(37,99,235,0.08)", marginBottom: 16 }}>
+                <span style={{ fontSize: 16, fontWeight: 700, color: T.blue, minWidth: 44, textAlign: "center" }}>⚡</span>
+                <span style={{ fontSize: 12, color: T.textMuted, fontWeight: 500 }}>Résultat en <span style={{ fontWeight: 700, color: T.blue }}>30 secondes</span>, prêt à envoyer.</span>
+              </div>
+
               <div style={{ display: "inline-flex", alignItems: "center", gap: 8, padding: "10px 16px", background: "rgba(255,255,255,0.6)", borderRadius: 8, border: "0.5px solid rgba(5,150,105,0.15)" }}>
                 <span style={{ color: T.accent, fontSize: 16 }}>★</span>
                 <span style={{ fontSize: 12, fontWeight: 600, color: T.accent }}>2 essais gratuits, aucune carte bancaire requise.</span>
@@ -264,7 +274,7 @@ export default function LettreIA() {
             </div>
           </Anim>
           <Anim delay={300}>
-            <div style={{ flex: "0 1 260px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
               <div style={{ background: T.bg, borderRadius: 10, padding: "20px 18px", border: `0.5px solid ${T.border}`, width: "100%", transform: "rotate(-1.5deg)", boxShadow: "0 4px 24px rgba(0,0,0,0.06)" }}>
                 <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
                   <div style={{ width: 8, height: 8, borderRadius: "50%", background: T.accent }} />
@@ -282,6 +292,7 @@ export default function LettreIA() {
               </div>
             </div>
           </Anim>
+          </div>
         </div>
       </div>
 
