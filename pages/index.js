@@ -31,6 +31,31 @@ const Anim = ({ children, delay = 0, y = 24 }) => {
   );
 };
 
+const font = `'Instrument Serif', Georgia, serif`;
+const sans = `'DM Sans', system-ui, sans-serif`;
+const T = {
+  bg: "#ffffff", surface: "#ffffff", surfaceLight: "#f5f7fa", accent: "#059669",
+  accentSoft: "rgba(5,150,105,0.07)", accentBorder: "rgba(5,150,105,0.18)",
+  text: "#1e293b", textMuted: "#64748b", textDim: "#94a3b8", border: "rgba(0,0,0,0.06)",
+  borderLight: "rgba(0,0,0,0.08)",
+  green: "#059669", greenSoft: "rgba(5,150,105,0.07)",
+  blue: "#2563eb", blueSoft: "rgba(37,99,235,0.06)", blueBorder: "rgba(37,99,235,0.12)",
+  emerald: "#10b981", emeraldDark: "#047857",
+};
+const globalCSS = `@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}::selection{background:rgba(5,150,105,.15);color:#1e293b}*{box-sizing:border-box}`;
+const wrap = { fontFamily: sans, background: T.bg, minHeight: "100vh", color: T.text, position: "relative", overflow: "hidden" };
+const ctn = { maxWidth: 620, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 };
+const Orb = ({ top, left, color, size = 400 }) => <div style={{ position: "fixed", top, left, width: size, height: size, borderRadius: "50%", background: color, filter: "blur(140px)", opacity: 0.12, pointerEvents: "none", zIndex: 0 }} />;
+const Field = ({ label: l, ph, val, set, area, req }) => (
+  <div style={{ marginBottom: 18 }}>
+    <label style={{ fontSize: 11, fontWeight: 500, color: T.textMuted, marginBottom: 7, display: "block", letterSpacing: 1, textTransform: "uppercase" }}>{l}{req && <span style={{ color: T.accent }}> *</span>}</label>
+    {area
+      ? <textarea placeholder={ph} value={val} onChange={e => set(e.target.value)} style={{ width: "100%", padding: "13px 16px", fontSize: 14, fontFamily: sans, border: `1px solid ${T.border}`, borderRadius: 10, background: T.surface, color: T.text, outline: "none", resize: "vertical", minHeight: 80, transition: "border-color 0.2s" }} onFocus={e => e.target.style.borderColor = T.accent} onBlur={e => e.target.style.borderColor = T.border} />
+      : <input placeholder={ph} value={val} onChange={e => set(e.target.value)} style={{ width: "100%", padding: "13px 16px", fontSize: 14, fontFamily: sans, border: `1px solid ${T.border}`, borderRadius: 10, background: T.surface, color: T.text, outline: "none", transition: "border-color 0.2s" }} onFocus={e => e.target.style.borderColor = T.accent} onBlur={e => e.target.style.borderColor = T.border} />
+    }
+  </div>
+);
+
 export default function LettreIA() {
   const [page, setPage] = useState("accueil");
   const [credits, setCredits] = useState(2);
@@ -95,25 +120,6 @@ Règles : structure française (coordonnées fictives, objet, MOI-VOUS-NOUS, pol
   const copy = () => { navigator.clipboard.writeText(lettre); setCopied(true); setTimeout(() => setCopied(false), 2000); };
   const resetAll = () => { setForm({ poste: "", entreprise: "", experience: "", competences: "", formation: "", tone: "professionnel", size: "courte" }); setLettre(""); setPage("accueil"); };
 
-  const font = `'Instrument Serif', Georgia, serif`;
-  const sans = `'DM Sans', system-ui, sans-serif`;
-  const T = {
-    bg: "#ffffff", surface: "#ffffff", surfaceLight: "#f5f7fa", accent: "#059669",
-    accentSoft: "rgba(5,150,105,0.07)", accentBorder: "rgba(5,150,105,0.18)",
-    text: "#1e293b", textMuted: "#64748b", textDim: "#94a3b8", border: "rgba(0,0,0,0.06)",
-    borderLight: "rgba(0,0,0,0.08)",
-    green: "#059669", greenSoft: "rgba(5,150,105,0.07)",
-    blue: "#2563eb", blueSoft: "rgba(37,99,235,0.06)", blueBorder: "rgba(37,99,235,0.12)",
-    emerald: "#10b981", emeraldDark: "#047857",
-  };
-
-  const globalCSS = `@keyframes spin{to{transform:rotate(360deg)}}@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}::selection{background:rgba(5,150,105,.15);color:#1e293b}*{box-sizing:border-box}`;
-
-  const wrap = { fontFamily: sans, background: T.bg, minHeight: "100vh", color: T.text, position: "relative", overflow: "hidden" };
-  const ctn = { maxWidth: 620, margin: "0 auto", padding: "0 24px", position: "relative", zIndex: 2 };
-
-  const Orb = ({ top, left, color, size = 400 }) => <div style={{ position: "fixed", top, left, width: size, height: size, borderRadius: "50%", background: color, filter: "blur(140px)", opacity: 0.12, pointerEvents: "none", zIndex: 0 }} />;
-
   const Logo = () => (
     <div onClick={resetAll} style={{ display: "inline-flex", alignItems: "center", cursor: "pointer", border: `1.5px solid ${T.text}`, borderRadius: 8, padding: "8px 16px", gap: 8, transition: "all 0.2s" }}>
       <span style={{ fontSize: 14, fontWeight: 600, fontFamily: sans, color: T.text, textTransform: "uppercase", letterSpacing: 2 }}>Lettre de motivation</span>
@@ -142,16 +148,6 @@ Règles : structure française (coordonnées fictives, objet, MOI-VOUS-NOUS, pol
       onMouseEnter={e => { if (!disabled) e.target.style.transform = "translateY(-1px)"; }}
       onMouseLeave={e => { e.target.style.transform = "none"; }}>{children}</button>;
   };
-
-  const Field = ({ label: l, ph, val, set, area, req }) => (
-    <div style={{ marginBottom: 18 }}>
-      <label style={{ fontSize: 11, fontWeight: 500, color: T.textMuted, marginBottom: 7, display: "block", letterSpacing: 1, textTransform: "uppercase" }}>{l}{req && <span style={{ color: T.accent }}> *</span>}</label>
-      {area
-        ? <textarea placeholder={ph} value={val} onChange={e => set(e.target.value)} style={{ width: "100%", padding: "13px 16px", fontSize: 14, fontFamily: sans, border: `1px solid ${T.border}`, borderRadius: 10, background: T.surface, color: T.text, outline: "none", resize: "vertical", minHeight: 80, transition: "border-color 0.2s" }} onFocus={e => e.target.style.borderColor = T.accent} onBlur={e => e.target.style.borderColor = T.border} />
-        : <input placeholder={ph} value={val} onChange={e => set(e.target.value)} style={{ width: "100%", padding: "13px 16px", fontSize: 14, fontFamily: sans, border: `1px solid ${T.border}`, borderRadius: 10, background: T.surface, color: T.text, outline: "none", transition: "border-color 0.2s" }} onFocus={e => e.target.style.borderColor = T.accent} onBlur={e => e.target.style.borderColor = T.border} />
-      }
-    </div>
-  );
 
   const Pricing = () => (
     <div style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.3)", backdropFilter: "blur(8px)", display: "flex", alignItems: "center", justifyContent: "center", zIndex: 200, padding: 20 }} onClick={() => setShowPricing(false)}>
