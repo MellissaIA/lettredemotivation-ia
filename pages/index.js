@@ -69,6 +69,8 @@ export default function LettreIA() {
   const [error, setError] = useState("");
   const [showPricing, setShowPricing] = useState(false);
 
+  useEffect(() => { const params = new URLSearchParams(window.location.search); if (params.get("success") === "true") { const c = parseInt(params.get("credits") || "0"); if (c > 0) { setCredits(prev => prev + c); setIsPaid(true); } window.history.replaceState({}, "", "/"); } }, []);
+
   useEffect(() => { if (!loading) return; const i = setInterval(() => setProgress(p => Math.min(p + Math.random() * 11, 93)), 500); return () => clearInterval(i); }, [loading]);
 
   const canGen = useCallback(() => {
@@ -116,7 +118,7 @@ Règles : structure française (coordonnées fictives, objet, MOI-VOUS-NOUS, pol
     } catch { setError("Erreur de connexion."); setPage("formulaire"); setLoading(false); }
   };
 
-  const buyPack = (p) => { setCredits(c => c + p.credits); setIsPaid(true); setShowPricing(false); if (page === "accueil") setPage("formulaire"); };
+  const buyPack = async (p) => { try { const res = await fetch("/api/create-checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ packId: p.id, credits: p.credits, price: p.price }) }); const data = await res.json(); if (data.url) window.location.href = data.url; } catch { alert("Erreur de paiement, réessayez."); } };
   const copy = () => { navigator.clipboard.writeText(lettre); setCopied(true); setTimeout(() => setCopied(false), 2000); };
   const resetAll = () => { setForm({ poste: "", entreprise: "", experience: "", competences: "", formation: "", tone: "professionnel", size: "courte" }); setLettre(""); setPage("accueil"); };
 
