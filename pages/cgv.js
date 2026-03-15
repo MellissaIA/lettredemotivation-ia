@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const sans = `'Montserrat', system-ui, sans-serif`;
 const T = { bg: "#ffffff", text: "#1e293b", textMuted: "#64748b", textDim: "#94a3b8", accent: "#059669", blue: "#2563eb", border: "rgba(0,0,0,0.06)" };
 
@@ -18,7 +16,7 @@ export default function CGV() {
         <div style={{ fontSize: 14, lineHeight: 1.9, color: T.textMuted, fontWeight: 500 }}>
 
           <h2 style={{ fontSize: 18, fontWeight: 700, color: T.text, marginTop: 32, marginBottom: 12 }}>1. Objet</h2>
-          <p>Les présentes Conditions Générales de Vente (CGV) régissent l'utilisation du service de génération de lettres de motivation par intelligence artificielle proposé sur le site <strong style={{ color: T.text }}>lettredemotivation-ia.fr</strong> (ci-après « le Service »).</p>
+          <p>Les présentes Conditions Générales de Vente (CGV) régissent l'utilisation du service de génération de lettres de motivation par intelligence artificielle proposé sur le site <strong style={{ color: T.text }}>lettredemotivation-ia.fr</strong> édité par <strong style={{ color: T.text }}>MELLISS LLC</strong> (ci-après « le Service »).</p>
 
           <h2 style={{ fontSize: 18, fontWeight: 700, color: T.text, marginTop: 32, marginBottom: 12 }}>2. Description du service</h2>
           <p>Le Service permet aux utilisateurs de générer des lettres de motivation personnalisées grâce à l'intelligence artificielle. L'utilisateur renseigne des informations (poste visé, expérience, compétences) et reçoit une lettre de motivation rédigée automatiquement.</p>
@@ -62,7 +60,7 @@ export default function CGV() {
           <p style={{ marginTop: 8 }}>L'utilisateur est seul responsable de la relecture, de la vérification et de l'utilisation des contenus générés.</p>
 
           <h2 style={{ fontSize: 18, fontWeight: 700, color: T.text, marginTop: 32, marginBottom: 12 }}>9. Service client</h2>
-          <p>Pour toute question ou réclamation, contactez-nous par email à : <strong style={{ color: T.text }}>[VOTRE EMAIL]</strong></p>
+          <p>Pour toute question ou réclamation, contactez-nous par email à : <strong style={{ color: T.text }}>Melomel.paris@gmail.com</strong></p>
           <p style={{ marginTop: 8 }}>Nous nous engageons à répondre dans un délai de 48 heures ouvrées.</p>
 
           <h2 style={{ fontSize: 18, fontWeight: 700, color: T.text, marginTop: 32, marginBottom: 12 }}>10. Médiation</h2>
