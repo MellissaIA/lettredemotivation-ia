@@ -5,15 +5,15 @@ export default function Document() {
     <Html lang="fr">
       <Head>
         <meta charSet="utf-8" />
-        <meta name="description" content="Generez votre lettre de motivation personnalisee en 30 secondes grace a l intelligence artificielle. Normes francaises, 3 formats, 2 essais gratuits." />
-        <meta name="keywords" content="lettre de motivation, generateur, IA, intelligence artificielle, candidature, emploi, CV" />
-        <meta property="og:title" content="Lettre de Motivation - IA | Generateur intelligent" />
-        <meta property="og:description" content="Votre lettre de motivation parfaite en 30 secondes grace a l IA." />
+        <meta name="description" content="Générez votre lettre de motivation personnalisée en 30 secondes grâce à l'intelligence artificielle. Optimisée pour les filtres ATS des recruteurs. 2 essais gratuits." />
+        <meta name="keywords" content="lettre de motivation, générateur, IA, intelligence artificielle, candidature, emploi, CV, ATS, filtres recruteurs" />
+        <meta property="og:title" content="Lettre de Motivation IA | Générateur optimisé ATS" />
+        <meta property="og:description" content="Une lettre de motivation qui triple vos chances d'entretien. Optimisée pour franchir les filtres ATS." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://lettredemotivation-ia.fr" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
       </Head>
       <body style={{ margin: 0, padding: 0 }}>
         <Main />
