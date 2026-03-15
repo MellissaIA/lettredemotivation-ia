@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const sans = `'Montserrat', system-ui, sans-serif`;
 const T = { bg: "#ffffff", text: "#1e293b", textMuted: "#64748b", textDim: "#94a3b8", accent: "#059669", blue: "#2563eb", border: "rgba(0,0,0,0.06)" };
 
@@ -20,11 +18,11 @@ export default function MentionsLegales() {
           <h2 style={{ fontSize: 18, fontWeight: 700, color: T.text, marginTop: 32, marginBottom: 12 }}>1. Éditeur du site</h2>
           <p>Le site <strong style={{ color: T.text }}>lettredemotivation-ia.fr</strong> est édité par :</p>
           <p style={{ marginTop: 8 }}>
-            Raison sociale : <strong style={{ color: T.text }}>[NOM DE VOTRE LLC]</strong><br/>
+            Raison sociale : <strong style={{ color: T.text }}>MELLISS LLC</strong><br/>
             Forme juridique : Limited Liability Company (LLC) — Single Member<br/>
-            Siège social : <strong style={{ color: T.text }}>[ADRESSE DE VOTRE LLC, Nouveau-Mexique, USA]</strong><br/>
-            Email de contact : <strong style={{ color: T.text }}>[VOTRE EMAIL]</strong><br/>
-            Responsable de la publication : <strong style={{ color: T.text }}>[VOTRE PRÉNOM NOM]</strong>
+            Siège social : Nouveau-Mexique, États-Unis<br/>
+            Email de contact : <strong style={{ color: T.text }}>Melomel.paris@gmail.com</strong><br/>
+            Responsable de la publication : <strong style={{ color: T.text }}>MELLISS LLC</strong>
           </p>
 
           <h2 style={{ fontSize: 18, fontWeight: 700, color: T.text, marginTop: 32, marginBottom: 12 }}>2. Hébergement</h2>
@@ -61,7 +59,7 @@ export default function MentionsLegales() {
           <p>Les données du formulaire ne sont pas stockées après la génération de votre lettre de motivation. Votre adresse email est conservée jusqu'à votre désinscription.</p>
 
           <h3 style={{ fontSize: 15, fontWeight: 700, color: T.text, marginTop: 20, marginBottom: 8 }}>Vos droits</h3>
-          <p>Vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, contactez-nous à : <strong style={{ color: T.text }}>[VOTRE EMAIL]</strong></p>
+          <p>Vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Pour exercer ces droits, contactez-nous à : <strong style={{ color: T.text }}>Melomel.paris@gmail.com</strong></p>
 
           <h2 style={{ fontSize: 18, fontWeight: 700, color: T.text, marginTop: 32, marginBottom: 12 }}>5. Cookies</h2>
           <p>Le site utilise des cookies techniques nécessaires au bon fonctionnement du service (sauvegarde des crédits et préférences). Des cookies publicitaires peuvent être utilisés par Google AdSense pour afficher des annonces pertinentes.</p>
