@@ -59,7 +59,7 @@ const Footer = () => (
       Postulez sur : <a href="https://www.indeed.fr" target="_blank" rel="noopener noreferrer" style={{ color: T.blue, textDecoration: "none", fontWeight: 600 }}>Indeed</a> · <a href="https://www.hellowork.com" target="_blank" rel="noopener noreferrer" style={{ color: T.blue, textDecoration: "none", fontWeight: 600 }}>HelloWork</a> · <a href="https://www.linkedin.com/jobs" target="_blank" rel="noopener noreferrer" style={{ color: T.blue, textDecoration: "none", fontWeight: 600 }}>LinkedIn</a> · <a href="https://www.francetravail.fr" target="_blank" rel="noopener noreferrer" style={{ color: T.blue, textDecoration: "none", fontWeight: 600 }}>Pôle Emploi</a>
     </p>
     <p style={{ fontSize: 11, color: T.textDim, fontFamily: sans, fontWeight: 500 }}>
-      <a href="#" style={{ color: T.textDim, textDecoration: "none" }}>Mentions légales</a> · <a href="#" style={{ color: T.textDim, textDecoration: "none" }}>CGV</a> · <a href="#" style={{ color: T.textDim, textDecoration: "none" }}>Contact</a>
+      <a href="/mentions-legales" style={{ color: T.textDim, textDecoration: "none" }}>Mentions légales</a> · <a href="/cgv" style={{ color: T.textDim, textDecoration: "none" }}>CGV</a> · <a href="mailto:contact@lettredemotivation-ia.fr" style={{ color: T.textDim, textDecoration: "none" }}>Contact</a>
     </p>
   </div>
 );
